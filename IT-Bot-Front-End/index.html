@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/cbb8b7ea9e.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <title>Chat Window</title>
+    <script src="https://cdn.botframework.com/botframework-webchat/latest/webchat.js"></script>
+</head>
+
+
+<body class="bg-secondary">
+        <button class="chat-btn"> 
+            <i class='fak fa-chatbot' style='font-size: 30px;'></i>
+        </button>
+        <!-- Changed frome here -->
+        <div class="chat-popup">
+            <div class="card-header">
+                <h5 class=" mb-0 text-white "> IT Helpdesk Chatbot  
+                    <button id="chat-reset" style="position:absolute; right: 50px; background-color:transparent  ;" data-bs-toggle="tooltip" data-bs-placement="top" title="Start Over">  <i class="fa-solid fa-arrows-rotate" style="color:white;"></i></button>
+                    <button id="chat-minimize" style="position:absolute; right: 15px; background-color:transparent  ;" data-bs-toggle="tooltip" data-bs-placement="top" title="Minimize">  <i class="fa-solid fa-angle-down align-self-end " style="color:white;"  ></i></button></h5>
+            </div>
+                <div class="chat-area" id="webchat">              
+                </div>
+        </div>
+        <!-- to here -->
+        <div id="toaster" style="z-index: -1">
+          <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-body" >
+              Hi I’m your IT Virtual Assistant! How may I help you today?
+            </div>
+          </div>
+        </div>
+     
+    <script src="https://cdn.jsdelivr.net/npm/@joeattardi/emoji-button@3.1.1/dist/index.min.js"></script>
+    <script src="main.js"></script>
+    <script>
+     // Set  the CSS rules.
+     const styleSet = window.WebChat.createStyleSet({
+        backgroundColor: 'white',
+        botAvatarBackgroundColor: 'white',
+
+        showNub: true,
+        bubbleNubOffset:'bottom',
+        bubbleNubSize:10,
+
+        bubbleTextColor: 'Black',
+        bubbleBorderRadius:10,
+        bubbleBackground: '#e6e5eb',
+
+        bubbleFromUserNubOffset: '10',
+        bubbleFromUserNubSize: 10,
+        bubbleFromUserBorderRadius:10,
+        bubbleFromUserTextColor:'White',
+        bubbleFromUserBackground: '#5b876b',
+
+        // sendBoxButtonColor: '#15532B',
+        // sendBoxHeight: 50,
+        typingAnimationBackgroundImage: true,
+        typingAnimationDuration: 5000,
+        typingAnimationHeight: 20,
+        typingAnimationWidth: 64,
+        suggestedActionBorderRadius: 10,
+        suggestedActionBackgroundColorOnHover: '#d0ddd5',
+        suggestedActionBorderColor: '#28546c',
+        suggestedActionTextColor: '#28546c'
+
+      });
+           
+      const chatStyles = {
+
+        suggestedActionLayout: 'flow',
+
+
+        botAvatarImage: "./img/chatbotlogo.JPG",
+        botAvatarInitials:'BOT',
+        
+ 
+        hideUploadButton: true,
+
+        showNub: true,
+        bubbleNubOffset:'bottom',
+        bubbleNubSize:10,
+        
+        bubbleFromUserNubOffset: '10',
+        bubbleFromUserNubSize: 10,
+
+        };
+
+
+    window.WebChat.renderWebChat({
+      directLine: window.WebChat.createDirectLine({
+          token: 'SJDLDblDGVQ.4U4t8m24doOgm0uYamhrkXBogDd79EySLnFk6Q1POhI'}),
+      styleSet,
+      styleOptions: chatStyles
+
+    }
+
+    , document.getElementById('webchat'));
+
+
+  </script>
+</body>
+</html>
